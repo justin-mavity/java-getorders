@@ -9,7 +9,8 @@ A student that completes this project shows that they can:
 
 ## Introduction
 
-This is a basic database scheme with customers, orders, and sales agents. This Java Spring REST API application will provide endpoints for clients to read various data sets contained in the application's data.
+This is a basic database scheme with customers, orders, and sales agents. This Java Spring REST API application will
+provide endpoints for clients to read various data sets contained in the application's data.
 
 This is Part 2 of a 3 Part project.
 
@@ -22,55 +23,58 @@ The table layouts are as follows
 ![Image of Database Layout](java-orders-db.png)
 
 * AGENTS
-  * AGENTCODE primary key, not null Long
-  * AGENTNAME string
-  * WORKINGAREA string
-  * COMMISSION double
-  * PHONE string
-  * COUNTRY string
+    * AGENTCODE primary key, not null Long
+    * AGENTNAME string
+    * WORKINGAREA string
+    * COMMISSION double
+    * PHONE string
+    * COUNTRY string
 
 * CUSTOMERS
-  * CUSTCODE primary key, not null Long
-  * CUSTNAME String, not null
-  * CUSTCITY String
-  * WORKINGAREA String
-  * CUSTCOUNTRY String
-  * GRADE String
-  * OPENINGAMT double
-  * RECEIVEAMT double
-  * PAYMENTAMT double
-  * OUTSTANDINGAMT double
-  * PHONE String
-  * AGENTCODE Long foreign key (one agent to many customers) not null
+    * CUSTCODE primary key, not null Long
+    * CUSTNAME String, not null
+    * CUSTCITY String
+    * WORKINGAREA String
+    * CUSTCOUNTRY String
+    * GRADE String
+    * OPENINGAMT double
+    * RECEIVEAMT double
+    * PAYMENTAMT double
+    * OUTSTANDINGAMT double
+    * PHONE String
+    * AGENTCODE Long foreign key (one agent to many customers) not null
 
 * ORDERS
-  * ORDNUM primary key, not null Long
-  * ORDAMOUNT double
-  * ADVANCEAMOUNT double
-  * CUSTCODE Long foreign key (one customer to many orders) not null
-  * ORDERDESCRIPTION String
+    * ORDNUM primary key, not null Long
+    * ORDAMOUNT double
+    * ADVANCEAMOUNT double
+    * CUSTCODE Long foreign key (one customer to many orders) not null
+    * ORDERDESCRIPTION String
 
 * PAYMENTS
-  * PAYMENTID primary key, not null long
-  * TYPE String not null
-  
+    * PAYMENTID primary key, not null long
+    * TYPE String not null
+
 * ORDERSPAYMENTS (join table)
-  * ORDERNUM foreign key to ORDERS
-  * PAYMENTID foreign key to PAYMENTS.
+    * ORDERNUM foreign key to ORDERS
+    * PAYMENTID foreign key to PAYMENTS.
 
 * Customers has a foreign key to Agents (AGENTCODE) this means:
-  * Customers has a Many to One relationship to Agents and
-  * Agents has a One to Many relationship to Customers
+    * Customers has a Many to One relationship to Agents and
+    * Agents has a One to Many relationship to Customers
 
 * Orders has a foreign key to Customers (CUSTCODE)
-  * Orders has a Many to One relationship to Customers and
-  * Customers has a One to Many relationship to Orders
+    * Orders has a Many to One relationship to Customers and
+    * Customers has a One to Many relationship to Orders
 
 * Orders has a many to many relationship with payments
-  * multiple orders can use the same payment type and an order can have multiple payment types.
-  * For example, you can use both gift card and credit card to pay for an order.
+    * multiple orders can use the same payment type and an order can have multiple payment types.
+    * For example, you can use both gift card and credit card to pay for an order.
 
-Using the provided seed data, a successful application will return the following data based on the given endpoint. Expand the section of the endpoint to see the data that is returned. Note that the given id numbers used in these examples are for seed data using `data.sql`. Seed data using command line runner from `SeedData.java` will yield different ids!
+Using the provided seed data, a successful application will return the following data based on the given endpoint.
+Expand the section of the endpoint to see the data that is returned. Note that the given id numbers used in these
+examples are for seed data using `data.sql`. Seed data using command line runner from `SeedData.java` will yield
+different ids!
 
 ### MVP
 
@@ -1298,16 +1302,20 @@ Using the provided seed data, a successful application will return the following
 
 ## Instructions
 
-* [ ] Please fork and clone this repository. Copy your solution from part 1 into this repository. Your solution from part 1 is the starting point for part 2. You will then need to run a `git add .` Regularly commit and push your code as appropriate.
+* [ ] Please fork and clone this repository. Copy your solution from part 1 into this repository. Your solution from
+  part 1 is the starting point for part 2. You will then need to run a `git add .` Regularly commit and push your code
+  as appropriate.
 
 * [ ] Expose the following endpoints
 
 * [ ]  GET /customers/orders - Returns all customers with their orders
 * [ ]  GET /customers/customer/{id} - Returns the customer and their orders with the given customer id
-* [ ]  GET /customers/namelike/{likename} - Returns all customers and their orders with a customer name containing the given substring
+* [ ]  GET /customers/namelike/{likename} - Returns all customers and their orders with a customer name containing the
+  given substring
 * [ ]  GET /agents/agent/{id} - Returns the agent and their customers with the given agent id
 * [ ]  GET /orders/order/{id} - Returns the order and its customer with the given order number
-* [ ]  GET /customers/orders/count - Using a custom query, return a list of all customers with the number of orders they have placed.
+* [ ]  GET /customers/orders/count - Using a custom query, return a list of all customers with the number of orders they
+  have placed.
 
 ### Stretch Goal
 
